@@ -58,6 +58,8 @@ func main() {
 	rootCmd.AddCommand(flags.NewCompletionCmd(rootCmd, true))
 	rootCmd.AddCommand(debug.Cmd(cdc))
 
+	rootCmd.AddCommand(GRPCStartCmd(ctx, newApp))
+
 	server.AddCommands(ctx, cdc, rootCmd, newApp, exportAppStateAndTMValidators)
 
 	// prepare and add flags
